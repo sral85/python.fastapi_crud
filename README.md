@@ -20,3 +20,13 @@ To create a user execute
 ```
 python3 src/create_user.py
 ```
+
+## HTTP Protocol
+The project uses uvicorn as a ASGI web server. Please note that this server only supports HTTP 1.1.
+To use higher versions like HTTP 2 / 3 consider the usage of hypercorn
+To configure it please consult: https://pgjones.gitlab.io/hypercorn/how_to_guides/configuring.html. 
+To enable the usage of HTTP/2 you can provide a certificate.  On your local machine you can generate a self-signed certificate:
+
+```
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
+```
